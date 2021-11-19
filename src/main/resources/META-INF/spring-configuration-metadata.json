@@ -1,0 +1,92 @@
+{
+  "groups": [
+    {
+      "name": "com.yidan.tus",
+      "type": "com.yidan.tus.server.config.TusProperties",
+      "sourceType": "com.yidan.tus.server.config.TusProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.yidan.tus.upload-URI",
+      "type": "java.lang.String",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "上传的回调地址"
+    },
+    {
+      "name": "com.yidan.tus.tus-upload-directory",
+      "type": "java.lang.String",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "tus的切片文件保存位置"
+    },
+    {
+      "name": "com.yidan.tus.app-upload-directory",
+      "type": "java.lang.String",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "上传成功后文件的保存位置"
+    },
+    {
+      "name": "com.yidan.tus.enable-clean",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "开启定时清理任务"
+    },
+    {
+      "name": "com.yidan.tus.expire-time",
+      "type": "java.lang.String",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "开启定时清理任务"
+    },
+    {
+      "name": "com.yidan.tus.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.yidan.tus.server.config.TusProperties",
+      "description": "是否启用tus插件"
+    }
+  ],
+  "hints": [
+    {
+      "name": "com.yidan.tus.enable-clean",
+      "values": [
+        {
+          "value": "true",
+          "description": "开启"
+        },
+        {
+          "value": "false",
+          "description": "关闭"
+        }
+      ]
+    },
+    {
+      "name": "com.yidan.tus.enable",
+      "values": [
+        {
+          "value": "true",
+          "description": "默认开启"
+        },
+        {
+          "value": "false",
+          "description": "关闭"
+        }
+      ]
+    },
+    {
+      "name": "com.yidan.tus.expire-time",
+      "values": [
+        {
+          "value": "1DAYS",
+          "description": "1天，数值<5位，不区分大小写"
+        },
+        {
+          "value": "1HOURS",
+          "description": "1小时，数值<5位，不区分大小写"
+        },
+        {
+          "value": "1MINUTES",
+          "description": "1分钟，数值<5位，不区分大小写"
+        }
+      ]
+    }
+  ]
+}
