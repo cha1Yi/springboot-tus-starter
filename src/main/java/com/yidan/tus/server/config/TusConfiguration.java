@@ -4,8 +4,8 @@ import com.yidan.tus.server.TusFileUploadResolver;
 import com.yidan.tus.server.expire.TusDirectoryExpireCleaner;
 import me.desair.tus.server.TusFileUploadService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,11 +16,11 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @EnableAutoConfiguration
+@EnableConfigurationProperties(TusProperties.class)
 @ConditionalOnProperty(prefix = "com.yidan.tus", name = "enable", havingValue = "true", matchIfMissing = true)
 public class TusConfiguration {
 
     @Bean
-    @ConditionalOnBean(TusProperties.class)
     public TusFileUploadService tusFileUploadService(TusProperties tusProperties) {
         final TusFileUploadService tusFileUploadService = new TusFileUploadService();
         tusFileUploadService.withStoragePath(tusProperties.getTusUploadDirectory().toString());
@@ -33,7 +33,6 @@ public class TusConfiguration {
 
 
     @Bean
-    @ConditionalOnBean({TusFileUploadService.class, TusProperties.class})
     public TusFileUploadResolver tusFileUploadResolver(TusFileUploadService tusFileUploadService, TusProperties tusProperties) {
         return new TusFileUploadResolver(tusFileUploadService, tusProperties);
     }
