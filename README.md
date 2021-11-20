@@ -2,6 +2,17 @@
 
 最近在做文件断点续传的springboot实现，前端使用的TUS插件，于是整理一个SpringBoot插件便于开发使用。
 
+## 依赖
+
+```xml
+
+<dependency>
+    <groupId>io.github.cha1yi</groupId>
+    <artifactId>tus-springboot-starter</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
 ## Java Client 实现
 
 使用场景，当业务需要往一个支持TUS协议的断点续传服务发送文件上传请求时。可以使用如下的方式实现断点续传。
